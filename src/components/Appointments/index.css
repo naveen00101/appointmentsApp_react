@@ -1,0 +1,105 @@
+/* Write your CSS here */
+.bg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, #fbc7d4, #9796f0);
+}
+
+.app-container {
+  background-color: white;
+  padding: 50px;
+  border-radius: 20px;
+  min-width: 60vw;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.main-heading {
+  font-family: roboto;
+  font-size: 44px;
+}
+
+.title-box {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: roboto;
+  font-size: 19px;
+  border-style: solid;
+  border-color: #b5b7c4;
+}
+
+.label {
+  font-family: roboto;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.add-btn {
+  background-color: #8b5cf6;
+  border: none;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  font-family: roboto;
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+}
+
+.side-img {
+  width: 30vw;
+}
+
+.headings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.h2 {
+  font-family: roboto;
+  font-size: 35px;
+}
+
+.btn {
+  background-color: transparent;
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  border-color: #9897f0;
+  border-style: solid;
+  color: #9897f0;
+  font-family: roboto;
+  font-size: 15px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.starred {
+  background-color: #9897f0;
+  color: white;
+}
+
+ul {
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,35 @@
+/* Write your CSS here */
+li {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px;
+}
+
+.appointment-con {
+  border: 2px #b5b7c4 solid;
+  width: 350px;
+  border-radius: 20px;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.top-sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fav-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.fav-img {
+  width: 30px;
+}
+
+.date {
+  font-family: roboto;
+  font-size: 20px;
+  color: #171f46;
+}
