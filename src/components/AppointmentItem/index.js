@@ -1,6 +1,5 @@
 // Write your code here
 import './index.css'
-import {format} from 'date-fns'
 
 const AppointmentItem = props => {
   const {appointmentDetails, toggleIsFav} = props
@@ -13,22 +12,20 @@ const AppointmentItem = props => {
     ? 'https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png'
     : 'https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png'
   return (
-    <li>
-      <div className="appointment-con">
-        <div className="top-sec">
-          <h1 className="box-title">{title}</h1>
-          <button
-            type="button"
-            className="fav-btn"
-            onClick={toggleFav}
-            data-testid="star"
-          >
-            <img className="fav-img" src={fav} alt="favorite" />
-          </button>
-        </div>
-        <div>
-          <p className="date">Date: {format(date, 'dd MMMM yyyy, cccc')}</p>
-        </div>
+    <li className="appointment-con">
+      <div className="top-sec">
+        <p className="box-title">{title}</p>
+        <button
+          type="button"
+          className="fav-btn"
+          onClick={toggleFav}
+          data-testid="star"
+        >
+          <img className="fav-img" src={fav} alt="star" />
+        </button>
+      </div>
+      <div>
+        <p className="date">Date: {date}</p>
       </div>
     </li>
   )

@@ -2,6 +2,7 @@
 import './index.css'
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
+import {format} from 'date-fns'
 import AppointmentItem from '../AppointmentItem/index'
 
 class Appointments extends Component {
@@ -26,9 +27,9 @@ class Appointments extends Component {
 
     return list.map(eachItem => (
       <AppointmentItem
-        key={eachItem.id}
         appointmentDetails={eachItem}
         toggleIsFav={this.toggleIsFav}
+        key={eachItem.id}
       />
     ))
   }
@@ -47,8 +48,7 @@ class Appointments extends Component {
   onAddAppointment = event => {
     event.preventDefault()
     const {titleInput, dateInput} = this.state
-    const d = dateInput.split('-')
-    const date = new Date(d[0], d[1], d[2])
+    const date = format(new Date(dateInput), 'dd MMMM yyyy, cccc')
     console.log(typeof dateInput)
     const id = uuidv4()
     console.log(id)
@@ -78,8 +78,12 @@ class Appointments extends Component {
   }
 
   render() {
-    const {starred, titleInput, dateInput} = this.state
+    const {starred, titleInput, dateInput, appointmentsList} = this.state
     const btn = starred ? 'starred btn' : 'btn'
+    let list = appointmentsList
+    if (starred) {
+      list = appointmentsList.filter(eachItem => eachItem.isFav)
+    }
 
     return (
       <div className="bg-container">
@@ -96,6 +100,7 @@ class Appointments extends Component {
                   className="title-box"
                   placeholder="Title"
                   name="title"
+                  id="title"
                   value={titleInput}
                   onChange={this.onChangeTitle}
                 />
@@ -108,10 +113,11 @@ class Appointments extends Component {
                   placeholder="title"
                   value={dateInput}
                   name="date"
+                  id="date"
                   onChange={this.onChangeDate}
                 />
 
-                <button type="button" className="add-btn">
+                <button type="submit" className="add-btn">
                   Add
                 </button>
               </form>
@@ -135,7 +141,15 @@ class Appointments extends Component {
                 Starred
               </button>
             </div>
-            <ul className="appointments">{this.renderAppointmentsList()}</ul>
+            <ul className="appointments">
+              {list.map(eachItem => (
+                <AppointmentItem
+                  appointmentDetails={eachItem}
+                  toggleIsFav={this.toggleIsFav}
+                  key={eachItem.id}
+                />
+              ))}
+            </ul>
           </div>
         </div>
       </div>
